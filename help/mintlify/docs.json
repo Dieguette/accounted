@@ -1,0 +1,16 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Accounted help (prototype)",
+  "colors": {
+    "primary": "#1f2937"
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Home",
+        "pages": ["index"]
+      }
+    ]
+  }
+}
