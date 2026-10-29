@@ -10,6 +10,12 @@
       {
         "group": "Home",
         "pages": ["index"]
+      },
+      {
+        "group": "Help",
+        "pages": [
+          "help/mintlify/copy-customer-email"
+        ]
       }
     ]
   }
