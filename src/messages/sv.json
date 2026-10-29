@@ -1587,7 +1587,10 @@
     "personal_number_hide": "Dölj personnummer",
     "personal_number_reveal_failed_title": "Personnumret kunde inte visas",
     "personal_number_unreadable": "Det sparade personnumret kan inte läsas.",
-    "personal_number_unreadable_action": "Skriv in det igen"
+    "personal_number_unreadable_action": "Skriv in det igen",
+    "email_copy_aria": "Kopiera e-postadressen",
+    "email_copied": "E-postadressen kopierades",
+    "email_copy_failed": "Kunde inte kopiera e-postadressen"
   },
   "form_customer": {
     "type_label": "Kundtyp *",
