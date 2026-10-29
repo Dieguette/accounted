@@ -14,7 +14,7 @@
       {
         "group": "Help",
         "pages": [
-          "help/mintlify/copy-customer-email"
+          "copy-customer-email"
         ]
       }
     ]
