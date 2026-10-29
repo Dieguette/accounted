@@ -17,13 +17,14 @@ import {
 import { AttnLine } from '@/components/ui/attn-line'
 import CustomerForm from '@/components/customers/CustomerForm'
 import { DestructiveConfirmDialog, useDestructiveConfirm } from '@/components/ui/destructive-confirm-dialog'
-import { Lock, Eye, EyeOff } from 'lucide-react'
+import { Lock, Eye, EyeOff, Copy } from 'lucide-react'
 import { useLocale } from 'next-intl'
 import { useCanWrite } from '@/lib/hooks/use-can-write'
 import { getErrorMessage, getResponseErrorMessage, type ErrorLocale } from '@/lib/errors/get-error-message'
 import { cn, formatDate } from '@/lib/utils'
 import { invoiceNumberDisplay } from '@/lib/invoices/display'
 import { getCountryName } from '@/lib/vat/country-codes'
+import { copyToClipboard } from '@/lib/browser/copy-to-clipboard'
 import type { Customer, CustomerType, CreateCustomerInput, InvoiceStatus } from '@/types'
 import { DetailPageSkeleton } from '@/components/common/DetailPageSkeleton'
 import { PartyFactsSection } from '@/components/parties/PartyFactsSection'
@@ -124,6 +125,17 @@ export default function CustomerDetailPage({
     } finally {
       setIsRevealing(false)
     }
+  }
+
+  async function copyEmail() {
+    if (!customer?.email) return
+    // First await in the click handler, so the user activation still holds.
+    const result = await copyToClipboard(customer.email)
+    toast(
+      result === 'copied'
+        ? { title: t('email_copied') }
+        : { title: t('email_copy_failed'), variant: 'destructive' },
+    )
   }
 
   useEffect(() => {
@@ -285,9 +297,22 @@ export default function CustomerDetailPage({
         </DefRow>
         <DefRow label={t('def_email')}>
           {customer.email ? (
-            <a href={`mailto:${customer.email}`} className="hover:underline">
-              {customer.email}
-            </a>
+            <>
+              <a href={`mailto:${customer.email}`} className="hover:underline">
+                {customer.email}
+              </a>
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                className="ml-1 -my-2 align-middle"
+                onClick={() => void copyEmail()}
+                aria-label={t('email_copy_aria')}
+                title={t('email_copy_aria')}
+              >
+                <Copy className="h-4 w-4" />
+              </Button>
+            </>
           ) : (
             <DefEmpty />
           )}

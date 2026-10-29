@@ -1587,7 +1587,10 @@
     "personal_number_hide": "Hide personal number",
     "personal_number_reveal_failed_title": "Could not show the personal number",
     "personal_number_unreadable": "The stored personal number cannot be read.",
-    "personal_number_unreadable_action": "Enter it again"
+    "personal_number_unreadable_action": "Enter it again",
+    "email_copy_aria": "Copy email address",
+    "email_copied": "Email address copied",
+    "email_copy_failed": "Could not copy the email address"
   },
   "form_customer": {
     "type_label": "Customer type *",
