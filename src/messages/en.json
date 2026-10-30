@@ -1590,7 +1590,10 @@
     "personal_number_unreadable_action": "Enter it again",
     "email_copy_aria": "Copy email address",
     "email_copied": "Email address copied",
-    "email_copy_failed": "Could not copy the email address"
+    "email_copy_failed": "Could not copy the email address",
+    "phone_copy_aria": "Copy phone number",
+    "phone_copied": "Phone number copied",
+    "phone_copy_failed": "Could not copy the phone number"
   },
   "form_customer": {
     "type_label": "Customer type *",

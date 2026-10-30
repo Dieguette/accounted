@@ -138,6 +138,17 @@ export default function CustomerDetailPage({
     )
   }
 
+  async function copyPhone() {
+    if (!customer?.phone) return
+    // First await in the click handler, so the user activation still holds.
+    const result = await copyToClipboard(customer.phone)
+    toast(
+      result === 'copied'
+        ? { title: t('phone_copied') }
+        : { title: t('phone_copy_failed'), variant: 'destructive' },
+    )
+  }
+
   useEffect(() => {
     fetchCustomer()
   }, [id])
@@ -318,7 +329,24 @@ export default function CustomerDetailPage({
           )}
         </DefRow>
         <DefRow label={t('def_phone')}>
-          {customer.phone || <DefEmpty />}
+          {customer.phone ? (
+            <>
+              {customer.phone}
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon"
+                className="ml-1 -my-2 align-middle"
+                onClick={() => void copyPhone()}
+                aria-label={t('phone_copy_aria')}
+                title={t('phone_copy_aria')}
+              >
+                <Copy className="h-4 w-4" />
+              </Button>
+            </>
+          ) : (
+            <DefEmpty />
+          )}
         </DefRow>
         <DefRow label={t('def_address')}>
           {customer.address_line1 || customer.city ? (
