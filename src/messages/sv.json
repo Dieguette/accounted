@@ -1590,7 +1590,10 @@
     "personal_number_unreadable_action": "Skriv in det igen",
     "email_copy_aria": "Kopiera e-postadressen",
     "email_copied": "E-postadressen kopierades",
-    "email_copy_failed": "Kunde inte kopiera e-postadressen"
+    "email_copy_failed": "Kunde inte kopiera e-postadressen",
+    "phone_copy_aria": "Kopiera telefonnumret",
+    "phone_copied": "Telefonnumret kopierades",
+    "phone_copy_failed": "Kunde inte kopiera telefonnumret"
   },
   "form_customer": {
     "type_label": "Kundtyp *",
